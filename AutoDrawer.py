@@ -26,17 +26,12 @@ image_pixels = image.load()
 starting_position = pyautogui.position()
 
 if args.drag == True:
-    for y in range(image.size[0]):
-        previous_pixel_opacity = 0
-        
+    for y in range(image.size[0]):        
         for x in range(image.size[1]):
-            if previous_pixel_opacity != 0:
+            if image_pixels[x, y][3] != 0:
                 pyautogui.mouseDown(x=x+starting_position[0], y=y+starting_position[1])
             else:
                 pyautogui.mouseUp(x=x+starting_position[0], y=y+starting_position[1])
-
-            previous_pixel_opacity = image_pixels[x, y][3]
-
     pyautogui.mouseUp()
 
 else:
