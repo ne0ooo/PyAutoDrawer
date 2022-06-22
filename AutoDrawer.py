@@ -32,7 +32,8 @@ if args.drag == True:
                 pyautogui.mouseDown(x=x+starting_position[0], y=y+starting_position[1])
             else:
                 pyautogui.mouseUp(x=x+starting_position[0], y=y+starting_position[1])
-    pyautogui.mouseUp()
+    
+    pyautogui.mouseUp() # This ensures that the mouse is not being held down after the drawing is done
 
 else:
     for y in range(image.size[0]):
